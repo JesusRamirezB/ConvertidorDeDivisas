@@ -23,4 +23,7 @@ Ingrese el importe que desea convertir en el campo "Importe".
 Seleccione la moneda inicial en el menú desplegable "De:".
 Seleccione la moneda final en el menú desplegable "a:".
 Haga clic en el botón "Convertir".
-El resultado de la conversión se mostrará en el campo "Resultado".#
+El resultado de la conversión se mostrará en el campo "Resultado".
+
+![Menú](img/img1.jpg)
+![Menú](img/img2.jpg)
