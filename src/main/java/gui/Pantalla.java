@@ -5,6 +5,8 @@
 package gui;
 
 import static com.mycompany.conversordemonedas.CurrencyConverter.getRate;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -17,7 +19,26 @@ public class Pantalla extends javax.swing.JFrame {
      */
     public Pantalla() {
         initComponents();
+        // Add a key listener to importField
+        importField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                importFieldKeyTyped(evt);
+            }
+        });
     }
+    private void importFieldKeyTyped(java.awt.event.KeyEvent evt) {                                     
+        // Get the typed key
+        char c = evt.getKeyChar();
+        
+        // Check if the typed key is a letter
+        if (Character.isLetter(c)) {
+            // Consume the event, preventing the letter from being entered
+            evt.consume();
+            
+            // Show a dialog box with the error message
+            JOptionPane.showMessageDialog(this, "Solo se pueden introducir números", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    } 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -148,14 +169,6 @@ public class Pantalla extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void importFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_importFieldActionPerformed
-
-    private void resultFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_resultFieldActionPerformed
-
     private void btnConvertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertActionPerformed
         String importe = importField.getText();
         double convertedImporte = Double.parseDouble(importe);
@@ -170,9 +183,18 @@ public class Pantalla extends javax.swing.JFrame {
         resultField.setText(String.format("%.2f", result));
     }//GEN-LAST:event_btnConvertActionPerformed
 
+    private void resultFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resultFieldActionPerformed
+
     private void initialCurrencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initialCurrencyActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_initialCurrencyActionPerformed
+
+    private void importFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importFieldActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_importFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
